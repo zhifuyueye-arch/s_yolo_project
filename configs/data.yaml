@@ -1,0 +1,71 @@
+# 水面光伏锚固系统检测数据集配置
+# Generated: 2026-02-27
+
+# 数据集路径 (相对于此文件或绝对路径)
+path: ../data/processed  # 数据集根目录
+
+# 子集路径
+train: images/train
+val: images/val
+test: images/test
+
+# 类别数量
+nc: 16
+
+# 类别名称 (扁平化16类: 4种部件 × 4种状态)
+# 类别ID -> 类别名称
+names:
+  0: anchor_rope_normal        # 锚绳-正常
+  1: anchor_rope_loose         # 锚绳-松弛/磨损
+  2: anchor_rope_missing       # 锚绳-断裂/缺失
+  3: anchor_rope_damaged       # 锚绳-破损
+  4: anchor_connector_normal   # 连接件-正常
+  5: anchor_connector_loose    # 连接件-松动
+  6: anchor_connector_missing  # 连接件-脱落
+  7: anchor_connector_damaged  # 连接件-腐蚀/破损
+  8: anchor_block_normal       # 锚块-正常
+  9: anchor_block_loose        # 锚块-移位
+  10: anchor_block_missing     # 锚块-沉降/缺失
+  11: anchor_block_damaged     # 锚块-破损
+  12: float_fastener_normal    # 浮筒连接件-正常
+  13: float_fastener_loose     # 浮筒连接件-松动
+  14: float_fastener_missing   # 浮筒连接件-脱落
+  15: float_fastener_damaged   # 浮筒连接件-破损
+
+# 可选：类别分组 (用于可视化)
+groups:
+  normal: [0, 4, 8, 12]
+  loose: [1, 5, 9, 13]
+  missing: [2, 6, 10, 14]
+  damaged: [3, 7, 11, 15]
+
+# 可选：部件类别
+components:
+  anchor_rope: [0, 1, 2, 3]
+  anchor_connector: [4, 5, 6, 7]
+  anchor_block: [8, 9, 10, 11]
+  float_fastener: [12, 13, 14, 15]
+
+# 数据增强配置 (Ultralytics YOLO格式)
+augmentation:
+  hsv_h: 0.015       # HSV色调增强 (0-1)
+  hsv_s: 0.7         # HSV饱和度增强
+  hsv_v: 0.4         # HSV明度增强
+  degrees: 10.0      # 旋转角度 (+/-)
+  translate: 0.1     # 平移比例
+  scale: 0.5         # 缩放比例
+  shear: 2.0         # 剪切角度
+  perspective: 0.0   # 透视变换
+  flipud: 0.5        # 上下翻转概率
+  fliplr: 0.5        # 左右翻转概率
+  mosaic: 1.0        # Mosaic增强概率
+  mixup: 0.1         # Mixup增强概率
+  copy_paste: 0.0    # 复制粘贴增强
+
+# 水面场景专用增强参数 (自定义)
+water_scene:
+  simulate_ripple: true      # 模拟水面波纹
+  simulate_glare: true       # 模拟阳光反光
+  simulate_algae: true       # 模拟藻类覆盖
+  glare_intensity: 0.3       # 反光强度
+  ripple_amplitude: 3.0      # 波纹幅度

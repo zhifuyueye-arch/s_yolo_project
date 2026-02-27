@@ -1,0 +1,22 @@
+path: D:\code\work\data\processed
+train: images/train
+val: images/val
+test: images/test
+nc: 16
+names:
+  0: anchor_rope_normal
+  1: anchor_rope_loose
+  2: anchor_rope_missing
+  3: anchor_rope_damaged
+  4: anchor_connector_normal
+  5: anchor_connector_loose
+  6: anchor_connector_missing
+  7: anchor_connector_damaged
+  8: anchor_block_normal
+  9: anchor_block_loose
+  10: anchor_block_missing
+  11: anchor_block_damaged
+  12: float_fastener_normal
+  13: float_fastener_loose
+  14: float_fastener_missing
+  15: float_fastener_damaged

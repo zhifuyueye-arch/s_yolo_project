@@ -1,0 +1,113 @@
+# 水面光伏锚固系统智能检测 - 完整依赖包列表
+# Python >= 3.8
+# CUDA >= 11.8 (推荐，用于GPU加速)
+
+# ==================== Web UI 界面 ====================
+# 用于启动可视化操作界面
+gradio>=4.0.0
+
+# ==================== 核心依赖 - 深度学习框架 ====================
+# YOLOv8/v12 框架 - 包含PyTorch依赖
+ultralytics>=8.1.0
+
+# ==================== 核心依赖 - 图像处理 ====================
+# OpenCV - 图像读取、处理、可视化
+opencv-python>=4.8.0
+opencv-contrib-python>=4.8.0
+
+# PIL - 图像格式支持
+Pillow>=10.0.0
+
+# ==================== 核心依赖 - 数据处理 ====================
+# NumPy - 数值计算
+numpy>=1.24.0
+
+# Pandas - 数据分析、CSV处理
+pandas>=2.0.0
+
+# PyYAML - 配置文件解析
+pyyaml>=6.0
+
+# ==================== 核心依赖 - 可视化 ====================
+# Matplotlib - 静态图表绘制
+matplotlib>=3.7.0
+
+# Seaborn - 统计图表美化
+seaborn>=0.12.0
+
+# Plotly - 交互式图表（可选，用于HTML报告）
+plotly>=5.18.0
+
+# ==================== 工具库 ====================
+# tqdm - 进度条显示
+tqdm>=4.65.0
+
+# psutil - 系统资源监控
+psutil>=5.9.0
+
+# ==================== 模型部署与导出（可选） ====================
+# ONNX - 跨平台模型导出
+onnx>=1.14.0
+onnxruntime-gpu>=1.16.0
+onnxruntime>=1.16.0
+
+# OpenVINO - Intel设备部署
+openvino>=2023.1.0
+
+# TensorRT - NVIDIA GPU部署（需单独安装CUDA和TensorRT）
+# tensorrt>=8.6.0
+
+# ==================== 开发工具（可选） ====================
+# 代码格式化与检查
+# black>=23.0.0
+# flake8>=6.0.0
+# pylint>=2.17.0
+# mypy>=1.5.0
+
+# 测试框架
+# pytest>=7.4.0
+# pytest-cov>=4.1.0
+
+# Jupyter Notebook（可选）
+# jupyter>=1.0.0
+# ipykernel>=6.25.0
+
+# ==================== 实验跟踪（可选） ====================
+# Weights & Biases - 实验管理
+# wandb>=0.15.0
+
+# TensorBoard - 训练可视化
+# tensorboard>=2.13.0
+
+# MLflow - 模型生命周期管理
+# mlflow>=2.6.0
+
+# ==================== 安装说明 ====================
+# 
+# 【基础安装】运行核心功能所需：
+#   pip install -r requirements.txt
+#
+# 【最小安装】仅命令行运行（无Web UI）：
+#   pip install ultralytics opencv-python numpy pandas matplotlib pyyaml tqdm
+#
+# 【完整安装】包含所有可选功能：
+#   pip install -r requirements.txt --upgrade
+#
+# 【GPU环境】确保已安装CUDA和cuDNN：
+#   - CUDA 11.8 或 12.1
+#   - cuDNN 8.x
+#   验证：python -c "import torch; print(torch.cuda.is_available())"
+#
+# 【常见问题】
+# 1. OpenCV安装失败：
+#    - Windows: pip install opencv-python-headless
+#    - Linux: sudo apt-get install libgl1-mesa-glx
+#
+# 2. PyTorch CUDA版本不匹配：
+#    访问 https://pytorch.org/get-started/locally/ 选择对应版本
+#    例如：pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+#
+# 3. 内存不足：
+#    - 降低 batch size
+#    - 使用更小模型（YOLOv8n替代YOLOv12）
+#    - 启用混合精度训练（AMP）
