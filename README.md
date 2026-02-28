@@ -304,7 +304,7 @@ outputs = session.run(None, {'images': image})
 ## 📧 联系方式
 
 - 项目维护者: CV Engineer
-- 邮箱: your.email@example.com
+- 邮箱: yueyezhifu@163.com
 - 问题反馈: [Issues](https://github.com/your-org/anchor-detection/issues)
 
 ---
